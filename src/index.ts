@@ -1,4 +1,6 @@
 import "dotenv/config";
+import helmet from "helmet";
+import mongoSanitize from "express-mongo-sanitize";
 import cors from "cors";
 import express, { NextFunction, Request, Response } from "express";
 import cookieParser from "cookie-parser";
@@ -16,6 +18,8 @@ import mfaRoutes from "./modules/mfa/mfa.routes";
 const app = express();
 const BASE_PATH = config.BASE_PATH;
 
+app.use(helmet());
+app.use(mongoSanitize());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
