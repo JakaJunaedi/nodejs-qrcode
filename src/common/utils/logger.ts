@@ -17,7 +17,7 @@ export const logger = createLogger({
   transports: [
     new transports.Console(),
     new transports.DailyRotateFile({
-      dirname: "logs",
+      dirname: "logs", //direktory folder logs,
       filename: "%DATE%-app.log",
       datePattern: "YYYY-MM-DD",
       maxSize: "20m",
